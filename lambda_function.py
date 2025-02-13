@@ -27,7 +27,7 @@ def send_mail(message):
     ses = boto3.client('ses', region_name=ses_region)
     
     ses.send_raw_email(
-        Source = forward_address,
+        Source = origin_address,
         Destinations = [forward_address],
         RawMessage = {'Data': message.as_bytes()}
     )
