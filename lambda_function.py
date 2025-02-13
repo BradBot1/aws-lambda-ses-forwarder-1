@@ -34,7 +34,7 @@ def send_mail(message):
 
 def lambda_handler(event, context):
     try:
-        s3_key = event['Records'][0]['s3']['object']['key']
+        s3_key = event['Records'][0]['ses']['mail']['messageId']
         
         s3 = boto3.client('s3')
         response = s3.get_object(
